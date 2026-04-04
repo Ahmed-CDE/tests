@@ -45,7 +45,7 @@ while the_finch_loop!="yes" or the_finch_loop!="y":
    the_finch_loop=input("do you want to exit now (yes or no): ".title()).lower().strip()
    if the_finch_loop=="yes" or the_finch_loop=="y":
       break
-   response=input("pleas choose what do you wand to do [delet or add or edit]: ".title()).lower().strip()
+   response=input("pleas choose what do you wand to do [delete or add or edit]: ".title()).lower().strip()
    if response=="add" or response=="a":
        student_name=input("pleas input a student: ".title()).strip()
        def student_add(student_name_1):
@@ -59,28 +59,28 @@ while the_finch_loop!="yes" or the_finch_loop!="y":
        student_marks_list_str=input("pleas input a student marks: ".title()).strip().split()
        student_information[student_name]=marks(student_marks_list_str)
        print("complete add a studentL".title())
-   elif response=="delet" or response=="d":
+   elif response=="delete" or response=="d":
       student_name=input("pleas input a student: ".title()).strip()
-      def student_delet(student_name_1):
+      def student_delete(student_name_1):
         if student_name_1 not in student_names():
             student_name_1=input("this name is not in the list pleas input another name: ".title()).strip()
-            return student_delet(student_name_1)
+            return student_delete(student_name_1)
         else:
             student_name_1
             return student_name_1
-      student_name=student_delet(student_name)
+      student_name=student_delete(student_name)
       student_information.pop(student_name)
-      print("complete delet a student".title())
+      print("complete delete a student".title())
    elif response=="edit"or response=="e":
       student_name=input("pleas input a student: ".title()).strip()
-      def student_delet(student_name_1):
+      def student_delete(student_name_1):
         if student_name_1 not in student_names():
             student_name_1=input("this name is not in the list pleas input another name: ".title()).strip()
-            return student_delet(student_name_1)
+            return student_delete(student_name_1)
         else:
             student_name_1
             return student_name_1
-      student_name=student_delet(student_name)
+      student_name=student_delete(student_name)
       print(f"the is data of student before edit {student_name}:{student_information[student_name]}")
       while the_finish_loop!="no" or the_finish_loop!="n":
          choose=input("pleas choose what do you want to edit (name or marks): ".title()).strip().lower()
@@ -98,4 +98,4 @@ while the_finch_loop!="yes" or the_finch_loop!="y":
         print(f"you choice [{response}]. pleas choice from [delete or add or edit]".title())
 for x, z in student_information.items():
     file=open(r"D:\important text\student.text", "a")
-    file.write(f"{x}:{z}")
+    file.write(f"{x}:{z}\n")
