@@ -1,0 +1,77 @@
+import pypandoc
+
+# Content with detailed shared and specific methods table
+text_content = """
+ملخص شامل للـ Methods في هياكل البيانات في بايثون
+
+====================================================
+أولًا: الـ Methods التي تعمل مع جميع الهياكل تقريبًا
+(مشتركة بين List و Set و Dictionary)
+
+| الـ Method | الوظيفة | يعمل مع |
+|-----------|----------|---------|
+| clear() | حذف جميع العناصر | List, Set, Dictionary |
+| pop() | حذف عنصر وإرجاعه | List, Set, Dictionary |
+| copy() | إنشاء نسخة من الهيكل | List, Set, Dictionary |
+
+----------------------------------------------------
+
+ثانيًا: الـ Methods المشتركة بين أكثر من نوع (ولكن ليس الكل)
+
+| الـ Method | الوظيفة | يعمل مع |
+|-----------|----------|---------|
+| count(x) | حساب عدد تكرار عنصر | List, Tuple |
+| index(x) | معرفة موقع عنصر | List, Tuple |
+| add(x) | إضافة عنصر | Set فقط |
+| append(x) | إضافة عنصر في نهاية القائمة | List فقط |
+| insert(i,x) | إدراج عنصر في موقع محدد | List فقط |
+| remove(x) | حذف عنصر محدد | List, Set |
+| discard(x) | حذف عنصر بدون حدوث خطأ | Set فقط |
+| sort() | ترتيب العناصر | List فقط |
+| reverse() | عكس ترتيب العناصر | List فقط |
+| keys() | إرجاع المفاتيح | Dictionary فقط |
+| values() | إرجاع القيم | Dictionary فقط |
+| items() | إرجاع (مفتاح, قيمة) | Dictionary فقط |
+
+----------------------------------------------------
+
+ثالثًا: Methods خاصة بالمجموعات (Set Operations)
+
+| الـ Method | الوظيفة | يعمل مع |
+|-----------|----------|---------|
+| union(s) | اتحاد مجموعتين | Set |
+| intersection(s) | العناصر المشتركة | Set |
+| difference(s) | الفرق بين مجموعتين | Set |
+| issubset(s) | هل المجموعة جزئية من أخرى | Set |
+| issuperset(s) | هل المجموعة تحتوي الأخرى | Set |
+
+----------------------------------------------------
+
+أمثلة سريعة:
+
+List:
+my_list = [1,2,3]
+my_list.append(4)
+
+Tuple:
+my_tuple = (1,2,3)
+my_tuple.count(2)
+
+Set:
+my_set = {1,2,3}
+my_set.add(4)
+
+Dictionary:
+my_dict = {"a":1,"b":2}
+my_dict.keys()
+
+====================================================
+تم إعداد هذا الجدول ليساعدك على معرفة:
+أي Method تعمل مع أي نوع من هياكل البيانات بسهولة.
+"""
+
+# Save as TXT
+output_path = "/mnt/data/python_methods_comparison.txt"
+pypandoc.convert_text(text_content, 'plain', format='md', outputfile=output_path, extra_args=['--standalone'])
+
+output_path
